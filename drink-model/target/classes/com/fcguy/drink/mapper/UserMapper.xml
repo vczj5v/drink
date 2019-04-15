@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- MySQL -->
+<mapper namespace="com.fcguy.drink.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.fcguy.drink.model.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="salt" property="salt" jdbcType="VARCHAR" />
+		<result column="created" property="created" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, account,phone, email,created,status
+	</sql>
+	<insert id="insertUser" parameterType="com.fcguy.drink.model.User">
+		insert into t_user
+			(account,password,phone,email,salt,created,status)
+		values
+			(#{account},
+			#{password},
+			#{phone},
+			#{email},
+			#{salt},
+			#{created},
+			#{status});
+	</insert>
+	<delete id="deleteUser" parameterType="int">
+		update t_user
+		set status='delete'
+		where id =#{id};
+	</delete>
+	<update id="updateUser" parameterType="com.fcguy.drink.model.User">
+		update t_user
+		set
+			account=#{account},
+			password=#{password},
+			phone=#{phone},
+			email=#{email},
+			created=#{created},
+			status=#{status}
+		where id=#{id};
+	</update>
+	<select id="findUserById" parameterType="int" resultMap="BaseResultMap">
+		select
+			<include refid="Base_Column_List" />
+		from t_user 
+		where id=#{id};
+	</select>
+	<select id="login" parameterType="string" resultMap="BaseResultMap">
+		select distinct
+			account,password,phone,email,salt,created,status
+		from t_user 
+		where account=#{account}
+		and password=#{password};
+	</select>
+	<select id="getUserCount" resultType="long">
+		select count(1) from t_user;
+	</select>
+	<select id="findAll" resultMap="BaseResultMap">
+		select
+			<include refid="Base_Column_List" />
+		from t_user;
+	</select>
+	<select id="findPage" parameterType="int" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" />
+		from t_user
+		order by id asc
+		limit #{index},#{limit};
+	</select>
+</mapper>
