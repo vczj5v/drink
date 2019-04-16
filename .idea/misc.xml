@@ -47,6 +47,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/drink-model/pom.xml" />
         <option value="$PROJECT_DIR$/model/pom.xml" />
       </set>
     </option>

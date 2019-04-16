@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="drink-common" />
-        <module name="drink-model" />
+        <module name="drink-test" />
         <module name="drinkcommon" />
+        <module name="drinktest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -16,7 +17,9 @@
       <module name="drink" target="1.7" />
       <module name="drink-common" target="1.7" />
       <module name="drink-model" target="1.7" />
+      <module name="drink-test" target="1.7" />
       <module name="drinkcommon" target="1.7" />
+      <module name="drinktest" target="1.7" />
       <module name="model" target="1.7" />
     </bytecodeTargetLevel>
   </component>

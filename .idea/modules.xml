@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/drink.iml" filepath="$PROJECT_DIR$/drink.iml" />
       <module fileurl="file://$PROJECT_DIR$/drink-common/drink-common.iml" filepath="$PROJECT_DIR$/drink-common/drink-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/drink-model/drink-model.iml" filepath="$PROJECT_DIR$/drink-model/drink-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/drink-test/drink-test.iml" filepath="$PROJECT_DIR$/drink-test/drink-test.iml" />
     </modules>
   </component>
 </project>
